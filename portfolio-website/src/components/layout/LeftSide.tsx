@@ -93,16 +93,30 @@ export const LeftSide: React.FC<LeftSideProps> = ({
                         onSectionChange(section.id);
                         setIsMobileMenuOpen(false);
                       }}
-                      className={`text-left text-lg font-medium transition-colors duration-200 hover:underline ${
-                        activeSection === section.id ? 'underline' : ''
-                      }`}
-                      style={{ 
-                        color: activeSection === section.id 
-                          ? currentTheme.colors.accent 
-                          : currentTheme.colors.text 
-                      }}
+                      className="flex items-center gap-3 w-full text-left group"
                     >
-                      {section.label}
+                      <div 
+                        className={`transition-all duration-300 ${
+                          activeSection === section.id 
+                            ? 'w-15 h-0.5 bg-current' 
+                            : 'w-8 h-0.5 bg-gray-400'
+                        }`}
+                        style={{ 
+                          color: activeSection === section.id 
+                            ? currentTheme.colors.accent 
+                            : 'inherit'
+                        }}
+                      />
+                      <span 
+                        className="text-lg font-medium transition-colors duration-200"
+                        style={{ 
+                          color: activeSection === section.id 
+                            ? currentTheme.colors.accent 
+                            : currentTheme.colors.text 
+                        }}
+                      >
+                        {section.label}
+                      </span>
                     </button>
                   </li>
                 ))}
