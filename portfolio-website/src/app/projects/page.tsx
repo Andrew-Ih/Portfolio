@@ -123,8 +123,8 @@ export default function ProjectsPage() {
           <div className="flex items-center gap-4 mb-6">
             <LinkWithIcon 
               href="/" 
+              external={false}
               className="flex items-center gap-2 text-lg font-medium hover:opacity-80"
-              style={{ color: currentTheme.colors.accent }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -198,7 +198,7 @@ export default function ProjectsPage() {
                     <LinkWithIcon 
                       href={project.link}
                       className="text-lg font-semibold hover:opacity-80"
-                      style={{ color: currentTheme.colors.accent }}
+                      // style={{ color: currentTheme.colors.accent }}
                     >
                       {project.title}
                     </LinkWithIcon>
