@@ -18,6 +18,21 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  /* Add these Chrome optimizations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Add this new section for smooth scrolling */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Force hardware acceleration for animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar */

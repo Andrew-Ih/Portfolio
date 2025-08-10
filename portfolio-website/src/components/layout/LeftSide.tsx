@@ -74,7 +74,7 @@ export const LeftSide: React.FC<LeftSideProps> = ({
                 className="text-xl lg:text-2xl font-medium mb-4"
                 style={{ color: currentTheme.colors.textSecondary }}
               >
-                Full Stack Cloud Developer
+                Full Stack Software Engineer
               </h2>
               <p 
                 className="text-base leading-relaxed"
