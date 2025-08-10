@@ -94,13 +94,13 @@ export const LeftSide: React.FC<LeftSideProps> = ({
                         onSectionChange(section.id);
                         setIsMobileMenuOpen(false);
                       }}
-                      className="flex items-center gap-3 w-full text-left group"
+                      className="flex items-center gap-3 text-left group hover:scale-105 transition-transform duration-200 w-fit"
                     >
                       <div 
                         className={`transition-all duration-300 ${
                           activeSection === section.id 
                             ? 'w-15 h-0.5 bg-current' 
-                            : 'w-8 h-0.5 bg-gray-400'
+                            : 'w-8 h-0.5 bg-gray-400 group-hover:w-12'
                         }`}
                         style={{ 
                           color: activeSection === section.id 
