@@ -29,6 +29,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ className = ''
       description: 'Built and deployed a .NET Azure Function App (C#) serving RESTful APIs for stock data, top gainers, and losers. Created responsive frontend with Next.js and Tailwind CSS, implemented CI/CD pipelines with Azure DevOps for automated deployment.',
       link: 'https://github.com/Andrew-Ih/StockTrackerBackend',
       thumbnail: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop&crop=center',
+      stats: { type: 'stars', value: '1' },
       technologies: ['C#', 'Azure', 'Next.js', 'DevOps', 'CI/CD Pipelines', 'REST API'],
     },
     {
@@ -54,23 +55,23 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ className = ''
   return (
     <section className={className}>
       <h2 
-        className="text-3xl font-bold mb-8"
+        className="text-2xl font-bold mb-6"
         style={{ color: currentTheme.colors.text }}
       >
         PROJECTS
       </h2>
       
-      <div className="space-y-8">
+      <div className="space-y-6">
         {projects.map((project) => (
           <ProjectItem key={project.id} project={project} />
         ))}
       </div>
       
       {/* View Full Project Archive Link */}
-      <div className="mt-12 pt-8 border-t" style={{ borderColor: currentTheme.colors.border }}>
+      <div className="mt-8 pt-6 border-t" style={{ borderColor: currentTheme.colors.border }}>
         <LinkWithIcon 
           href="/projects" 
-          className="text-lg font-medium hover:underline"
+          className="text-base font-medium hover:underline"
           external={false}
         >
           View Full Project Archive →

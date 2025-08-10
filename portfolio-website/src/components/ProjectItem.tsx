@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Tag } from './ui/Tag';
 import { LinkWithIcon } from './ui/LinkWithIcon';
@@ -60,19 +61,34 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
   };
   
   return (
-    <div className="mb-16 last:mb-0">
-      <div className="flex flex-col lg:flex-row gap-8 items-start">
-        {/* Left side - Project content */}
+    <div className="mb-8 last:mb-0">
+      <div className="flex flex-col lg:flex-row gap-4 items-start">
+        {/* Left side - Thumbnail */}
+        {project.thumbnail && (
+          <div className="lg:w-40 lg:flex-shrink-0">
+            <div className="rounded-lg overflow-hidden border" style={{ borderColor: currentTheme.colors.border }}>
+              <Image 
+                src={project.thumbnail} 
+                alt={project.title}
+                width={100}
+                height={100}
+                className="w-full h-25 object-cover"
+              />
+            </div>
+          </div>
+        )}
+        
+        {/* Right side - Project content */}
         <div className="flex-1 min-w-0">
           {/* Title and Link */}
-          <div className="mb-3">
+          <div className="mb-2">
             {project.link ? (
-              <LinkWithIcon href={project.link} className="text-xl font-bold">
+              <LinkWithIcon href={project.link} className="text-lg font-bold">
                 {project.title}
               </LinkWithIcon>
             ) : (
               <h3 
-                className="text-xl font-bold"
+                className="text-lg font-bold"
                 style={{ color: currentTheme.colors.text }}
               >
                 {project.title}
@@ -82,21 +98,21 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
           
           {/* Description */}
           <p 
-            className="mb-4 leading-relaxed"
+            className="mb-3 text-sm leading-relaxed"
             style={{ color: currentTheme.colors.textSecondary }}
           >
             {project.description}
           </p>
           
           {/* Stats and Technologies */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
             {project.stats && (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
                 <span style={{ color: currentTheme.colors.textSecondary }}>
                   {getStatIcon(project.stats.type)}
                 </span>
                 <span 
-                  className="text-sm font-medium"
+                  className="text-xs font-medium"
                   style={{ color: currentTheme.colors.textSecondary }}
                 >
                   {project.stats.value}
@@ -104,26 +120,13 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
               </div>
             )}
             
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {project.technologies.map((tech) => (
                 <Tag key={tech}>{tech}</Tag>
               ))}
             </div>
           </div>
         </div>
-        
-        {/* Right side - Thumbnail */}
-        {project.thumbnail && (
-          <div className="lg:w-48 lg:flex-shrink-0">
-            <div className="rounded-lg overflow-hidden border" style={{ borderColor: currentTheme.colors.border }}>
-              <img 
-                src={project.thumbnail} 
-                alt={project.title}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

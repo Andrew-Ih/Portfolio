@@ -14,7 +14,16 @@ export const Layout: React.FC = () => {
     if (rightSideRef.current) {
       const sectionElement = rightSideRef.current.querySelector(`#${sectionId}`);
       if (sectionElement) {
-        sectionElement.scrollIntoView({ behavior: 'smooth' });
+        const containerRect = rightSideRef.current.getBoundingClientRect();
+        const elementRect = sectionElement.getBoundingClientRect();
+        const offset = 88; // Accounts for the py-12 padding (48px)
+        
+        const scrollTop = rightSideRef.current.scrollTop + (elementRect.top - containerRect.top) - offset;
+        
+        rightSideRef.current.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth'
+        });
       }
     }
   };
@@ -25,7 +34,7 @@ export const Layout: React.FC = () => {
       if (!rightSideRef.current) return;
       
       const sections = ['about', 'experience', 'projects'];
-      const scrollTop = rightSideRef.current.scrollTop;
+      // const scrollTop = rightSideRef.current.scrollTop;
       const containerHeight = rightSideRef.current.clientHeight;
       
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -54,13 +63,13 @@ export const Layout: React.FC = () => {
   return (
     <div className="flex flex-col lg:flex-row h-screen">
       <LeftSide 
-        className="lg:w-1/2"
+        className="lg:w-2/5 py-10 pl-14"
         activeSection={activeSection}
         onSectionChange={scrollToSection}
       />
       <RightSide 
         ref={rightSideRef}
-        className="lg:w-1/2"
+        className="lg:w-3/5 py-10 pr-14"
         activeSection={activeSection}
       />
     </div>

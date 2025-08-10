@@ -15,7 +15,7 @@ export const LeftSide: React.FC<LeftSideProps> = ({
   activeSection, 
   onSectionChange 
 }) => {
-  const { currentTheme, setTheme } = useTheme();
+  const { currentTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const sections = [
@@ -24,13 +24,14 @@ export const LeftSide: React.FC<LeftSideProps> = ({
     { id: 'projects', label: 'PROJECTS' },
   ];
 
-  const toggleTheme = () => {
-    setTheme(currentTheme.name === 'Light' ? 'dark' : 'light');
-  };
+//   const toggleTheme = () => {
+//     setTheme(currentTheme.name === 'Light' ? 'dark' : 'light');
+//   };
   
   return (
     <div 
-      className={`${className} flex flex-col justify-between h-screen border-r transition-colors duration-200`}
+      // Add border-r to add line inbetween left and right side
+      className={`${className} flex flex-col justify-between h-screen transition-colors duration-200`}
       style={{ 
         backgroundColor: currentTheme.colors.primary,
         borderColor: currentTheme.colors.border,
@@ -73,7 +74,7 @@ export const LeftSide: React.FC<LeftSideProps> = ({
                 className="text-xl lg:text-2xl font-medium mb-4"
                 style={{ color: currentTheme.colors.textSecondary }}
               >
-                Full Stack Cloud Developer
+                Full Stack Software Engineer
               </h2>
               <p 
                 className="text-base leading-relaxed"
@@ -93,13 +94,13 @@ export const LeftSide: React.FC<LeftSideProps> = ({
                         onSectionChange(section.id);
                         setIsMobileMenuOpen(false);
                       }}
-                      className="flex items-center gap-3 w-full text-left group"
+                      className="flex items-center gap-3 text-left group hover:scale-105 transition-transform duration-200 w-fit"
                     >
                       <div 
                         className={`transition-all duration-300 ${
                           activeSection === section.id 
                             ? 'w-15 h-0.5 bg-current' 
-                            : 'w-8 h-0.5 bg-gray-400'
+                            : 'w-8 h-0.5 bg-gray-400 group-hover:w-12'
                         }`}
                         style={{ 
                           color: activeSection === section.id 
@@ -124,7 +125,7 @@ export const LeftSide: React.FC<LeftSideProps> = ({
             </nav>
 
             {/* Theme Toggle */}
-            <div className="mb-12">
+            {/* <div className="mb-12">
               <button
                 onClick={toggleTheme}
                 className="flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-200 hover:opacity-80"
@@ -151,13 +152,13 @@ export const LeftSide: React.FC<LeftSideProps> = ({
                   </>
                 )}
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
 
       {/* Social Icons - Positioned lower, closer to bottom */}
-      <div className="px-16 pb-25">
+      <div className="px-16 pb-10">
         <div className="max-w-xl mx-auto">
           <SocialIcons />
         </div>

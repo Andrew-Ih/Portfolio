@@ -11,7 +11,7 @@ interface RightSideProps {
   activeSection: string;
 }
 
-export const RightSide = forwardRef<HTMLDivElement, RightSideProps>(({ className = '', activeSection }, ref) => {
+export const RightSide = forwardRef<HTMLDivElement, RightSideProps>(({ className = '' }, ref) => {
   const { currentTheme } = useTheme();
   
   return (
@@ -23,8 +23,8 @@ export const RightSide = forwardRef<HTMLDivElement, RightSideProps>(({ className
         color: currentTheme.colors.text 
       }}
     >
-      <div className="px-16 py-12">
-        <div className="max-w-xl mx-auto space-y-16">
+      <div className="pl-16 pr-10 py-12">
+        <div className="max-w-2xl mx-auto space-y-36">
           <div id="about">
             <AboutSection />
           </div>

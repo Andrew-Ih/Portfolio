@@ -13,7 +13,7 @@ export const Tag: React.FC<TagProps> = ({ children, className = '' }) => {
   
   return (
     <span
-      className={`inline-block px-3 py-1 text-sm font-medium rounded-full transition-colors duration-200 ${className}`}
+      className={`inline-block px-2 py-0.5 text-xs font-medium rounded-md transition-colors duration-200 ${className}`}
       style={{
         backgroundColor: currentTheme.colors.surface,
         color: currentTheme.colors.text,
