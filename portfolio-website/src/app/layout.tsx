@@ -3,8 +3,10 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
 export const metadata: Metadata = {
-  title: "Your Name - Front End Engineer",
-  description: "I build accessible, pixel-perfect digital experiences for the web.",
+  title: "Andrew Iheanacho",
+  icons: {
+    icon: '/a-svgrepo-com-small.svg',
+  },
 };
 
 export default function RootLayout({

@@ -11,7 +11,7 @@ interface RightSideProps {
   activeSection: string;
 }
 
-export const RightSide = forwardRef<HTMLDivElement, RightSideProps>(({ className = '', activeSection }, ref) => {
+export const RightSide = forwardRef<HTMLDivElement, RightSideProps>(({ className = '' }, ref) => {
   const { currentTheme } = useTheme();
   
   return (

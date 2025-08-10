@@ -15,7 +15,7 @@ export const LeftSide: React.FC<LeftSideProps> = ({
   activeSection, 
   onSectionChange 
 }) => {
-  const { currentTheme, setTheme } = useTheme();
+  const { currentTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const sections = [
